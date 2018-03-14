@@ -1,127 +1,152 @@
 [
     {
-        "id": 4479,
-        "description": "Abalone, Mixed Species, Raw",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/1",
+        "quantity": 1.5,
+        "foodDescription": "Squab, (Pigeon), Meat Only, Raw",
+        "measure": {
+            "description": "1 Unit,   (Yield From 1 Lb Ready-To-Cook Squab)",
+            "calories": 356.0,
+            "url": "http://localhost:8901/api/nutrition/foods/910/measures/1591"
+        }
     },
     {
-        "id": 4480,
-        "description": "Abalone, Mxd Sp, Ckd, Fried",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/2",
+        "quantity": 1.5,
+        "foodDescription": "Babyfood, Apple-Cranberry Juc",
+        "measure": {
+            "description": "1 Fl Oz",
+            "calories": 14.0,
+            "url": "http://localhost:8901/api/nutrition/foods/376/measures/685"
+        }
     },
     {
-        "id": 2478,
-        "description": "Abiyuch, Raw",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/3",
+        "quantity": 1.5,
+        "foodDescription": "Chicken, Broilers Or Fryers, Meat&Skn&Giblets&Neck, Raw",
+        "measure": {
+            "description": "1 Chicken",
+            "calories": 2228.0,
+            "url": "http://localhost:8901/api/nutrition/foods/750/measures/1280"
+        }
     },
     {
-        "id": 2177,
-        "description": "Acerola Juice, Raw",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/4",
+        "quantity": 1.5,
+        "foodDescription": "Cheese, Caraway",
+        "measure": {
+            "description": "1 Oz",
+            "calories": 107.0,
+            "url": "http://localhost:8901/api/nutrition/foods/8/measures/15"
+        }
     },
     {
-        "id": 2176,
-        "description": "Acerola, (West Indian Cherry), Raw",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/5",
+        "quantity": 1.5,
+        "foodDescription": "Babyfood, Fruit, Applsauc&Apricots, Jr",
+        "measure": {
+            "description": "1 Tbsp",
+            "calories": 8.0,
+            "url": "http://localhost:8901/api/nutrition/foods/354/measures/642"
+        }
     },
     {
-        "id": 3632,
-        "description": "Acorn Flour, Full Fat",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/6",
+        "quantity": 1.5,
+        "foodDescription": "Dessert Topping, Semi Solid, Frz",
+        "measure": {
+            "description": "1 Cup",
+            "calories": 238.0,
+            "url": "http://localhost:8901/api/nutrition/foods/66/measures/128"
+        }
     },
     {
-        "id": 7224,
-        "description": "Acorn Stew (Apache)",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/7",
+        "quantity": 1.5,
+        "foodDescription": "Chicken, Stewing, Lt Meat, Meat Only, Ckd, Stwd",
+        "measure": {
+            "description": "1 Cup,  Chopped Or Diced",
+            "calories": 298.0,
+            "url": "http://localhost:8901/api/nutrition/foods/879/measures/1530"
+        }
     },
     {
-        "id": 3631,
-        "description": "Acorns, Dried",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/8",
+        "quantity": 1.5,
+        "foodDescription": "Fennel Seed",
+        "measure": {
+            "description": "1 Tbsp,  Whole",
+            "calories": 20.0,
+            "url": "http://localhost:8901/api/nutrition/foods/220/measures/386"
+        }
     },
     {
-        "id": 3630,
-        "description": "Acorns, Raw",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/9",
+        "quantity": 1.5,
+        "foodDescription": "Cheese, Parmesan, Hard",
+        "measure": {
+            "description": "1 Oz",
+            "calories": 111.0,
+            "url": "http://localhost:8901/api/nutrition/foods/33/measures/62"
+        }
     },
     {
-        "id": 1556,
-        "description": "Adobo Fresco",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/10",
+        "quantity": 1.5,
+        "foodDescription": "Salad Drsng, Honey Mustard Drsng, Red Cal",
+        "measure": {
+            "description": "2 Tbsp,   (1 Serving)",
+            "calories": 62.0,
+            "url": "http://localhost:8901/api/nutrition/foods/738/measures/1264"
+        }
     },
     {
-        "id": 7233,
-        "description": "Agave, Ckd (Southwest)",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/11",
+        "quantity": 1.5,
+        "foodDescription": "Babyfood, Veg, Spinach, Crmd, Str",
+        "measure": {
+            "description": "1 Cup",
+            "calories": 89.0,
+            "url": "http://localhost:8901/api/nutrition/foods/339/measures/612"
+        }
     },
     {
-        "id": 7234,
-        "description": "Agave, Dried (Southwest)",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/12",
+        "quantity": 1.5,
+        "foodDescription": "Turkey, All Classes, Neck, Meat Only, Ckd, Simmrd",
+        "measure": {
+            "description": "1 Unit,   (Yield From 1 Lb Ready-To-Cook Turkey)",
+            "calories": 18.0,
+            "url": "http://localhost:8901/api/nutrition/foods/929/measures/1624"
+        }
     },
     {
-        "id": 7232,
-        "description": "Agave, Raw (Southwest)",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/13",
+        "quantity": 1.5,
+        "foodDescription": "Veg Oil Sprd, 37% Fat, Unspec Oils, W/ Salt, W/ Added Vitamin D",
+        "measure": {
+            "description": "1 Tbsp",
+            "calories": 51.0,
+            "url": "http://localhost:8901/api/nutrition/foods/742/measures/1268"
+        }
     },
     {
-        "id": 7249,
-        "description": "Agutuk, Fish W/ Shortening (Alaskan Ice Cream) (Alaska Native",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/14",
+        "quantity": 1.5,
+        "foodDescription": "Salad Drsng, Mayo, Imitn, Milk Crm",
+        "measure": {
+            "description": "1 Tablespoon",
+            "calories": 15.0,
+            "url": "http://localhost:8901/api/nutrition/foods/579/measures/979"
+        }
     },
     {
-        "id": 7100,
-        "description": "Agutuk, Fish/Berry W/ Seal Oil (Ice Cream) (Alaska Native)",
-        "measures": []
-    },
-    {
-        "id": 7101,
-        "description": "Agutuk, Meat-Caribou (Alaskan Ice Cream) (Alaska Native)",
-        "measures": []
-    },
-    {
-        "id": 4067,
-        "description": "Alcoholic Bev, Beer, Lt",
-        "measures": []
-    },
-    {
-        "id": 4068,
-        "description": "Alcoholic Bev, Beer, Lt, Bud Lt",
-        "measures": []
-    },
-    {
-        "id": 4066,
-        "description": "Alcoholic Bev, Beer, Lt, Budweiser Sel",
-        "measures": []
-    },
-    {
-        "id": 4071,
-        "description": "Alcoholic Bev, Beer, Lt, Michelob Ultra",
-        "measures": []
-    },
-    {
-        "id": 4064,
-        "description": "Alcoholic Bev, Beer, Reg, All",
-        "measures": []
-    },
-    {
-        "id": 4065,
-        "description": "Alcoholic Bev, Beer, Reg, Budweiser",
-        "measures": []
-    },
-    {
-        "id": 4080,
-        "description": "Alcoholic Bev, Creme De Menthe, 72 Proof",
-        "measures": []
-    },
-    {
-        "id": 4069,
-        "description": "Alcoholic Bev, Daiquiri, Cnd",
-        "measures": []
-    },
-    {
-        "id": 4070,
-        "description": "Alcoholic Bev, Daiquiri, Prepared-From-Recipe",
-        "measures": []
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/15",
+        "quantity": 1.5,
+        "foodDescription": "Turkey, Fryer-Roasters, Dk Meat, Meat Only, Ckd, Rstd",
+        "measure": {
+            "description": "1 Cup,  Chopped Or Diced",
+            "calories": 227.0,
+            "url": "http://localhost:8901/api/nutrition/foods/961/measures/1687"
+        }
     }
 ]

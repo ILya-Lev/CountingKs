@@ -25,13 +25,13 @@ namespace CountingKs
             );
             config.Routes.MapHttpRoute(
                 name: "Diary",
-                routeTemplate: "api/user/diaries/{diaryid}/{summary}",
+                routeTemplate: "api/user/diaries/{diaryid}", // /{summary}
                 defaults: new { controller = "diaries", diaryid = RouteParameter.Optional, summary = RouteParameter.Optional }
             );
             config.Routes.MapHttpRoute(
                 name: "Diary Entry",
-                routeTemplate: "api/user/diaries/{date}/entries/{id}",
-                defaults: new { controller = "diaryentry", id = RouteParameter.Optional }
+                routeTemplate: "api/user/diaries/{diaryid}/entries/{id}",
+                defaults: new { controller = "diaryEntries", id = RouteParameter.Optional }
             );
 
             // Uncomment the following line of code to enable query support for actions with an IQueryable or IQueryable<T> return type.

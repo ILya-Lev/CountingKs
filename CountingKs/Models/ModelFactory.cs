@@ -37,5 +37,27 @@ namespace CountingKs.Models
                 Calories = Math.Round(measure.Calories),
             };
         }
+
+        public DiaryModel Create(Diary diary)
+        {
+            return new DiaryModel
+            {
+                Url = _urlHelper.Link("Diary", new { diaryid = diary.CurrentDate.ToString("yyyy-MM-dd") }),
+                UserName = diary.UserName,
+                CurrentDate = diary.CurrentDate,
+                Entries = diary.Entries.Select(Create)
+            };
+        }
+
+        public DiaryEntryModel Create(DiaryEntry entry)
+        {
+            return new DiaryEntryModel
+            {
+                Url = _urlHelper.Link("Diary Entry", new { id = entry.Id, diaryid = entry.Diary.CurrentDate.ToString("yyyy-MM-dd") }),
+                Quantity = entry.Quantity,
+                FoodDescription = entry.FoodItem.Description,
+                Measure = Create(entry.Measure)
+            };
+        }
     }
 }

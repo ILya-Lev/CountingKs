@@ -1,5 +1,7 @@
 ﻿using CountingKs.Data;
 using CountingKs.Data.Entities;
+using CountingKs.Models;
+using CountingKs.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +12,23 @@ namespace CountingKs.Controllers
 {
     public class DiariesController : BaseApiController
     {
-        public DiariesController(ICountingKsRepository repo, HttpRequestMessage request) : base(repo, request)
+        private readonly ICountingKsIdentityService _identityService;
+
+        public DiariesController(ICountingKsRepository repo, HttpRequestMessage request, ICountingKsIdentityService identityService)
+            : base(repo, request)
         {
+            _identityService = identityService;
         }
 
-        public IEnumerable<Diary> Get()
+        public IEnumerable<DiaryModel> Get()
         {
-            return Repository.GetDiaries(User.Identity.Name);
+            //return Repository.GetDiaries(User.Identity.Name);
+            return Repository
+                .GetDiaries(_identityService.CurrentUser)
+                .OrderByDescending(d => d.CurrentDate)
+                .Take(10)
+                .ToList()
+                .Select(ModelFactory.Create);
         }
 
         public void Post()
@@ -33,7 +45,8 @@ namespace CountingKs.Controllers
             var diary = GetDiaryForDate(diaryId);
             if (diary == null)
                 return NotFound();
-            return Ok(diary);
+            var diaryModel = ModelFactory.Create(diary);
+            return Ok(diaryModel);
         }
 
         public IHttpActionResult Delete(DateTime date)
@@ -53,8 +66,9 @@ namespace CountingKs.Controllers
             if (diary == null)
                 return NotFound();
 
-            var entryDescriptions = diary.Entries
-                .Select(e => $"{e.FoodItem.Description} {e.Measure.Description} {e.Quantity}");
+            var diaryModel = ModelFactory.Create(diary);
+            var entryDescriptions = diaryModel.Entries
+                .Select(e => $"{e.FoodDescription} {e.Measure.Description} {e.Quantity}");
 
             var aSummary = string.Join("\r\n", entryDescriptions);
             return Ok(aSummary);
@@ -62,7 +76,8 @@ namespace CountingKs.Controllers
 
         private Diary GetDiaryForDate(DateTime date)
         {
-            return Repository.GetDiary(User.Identity.Name, date);
+            //return Repository.GetDiary(User.Identity.Name, date);
+            return Repository.GetDiary(_identityService.CurrentUser, date);
         }
     }
 }

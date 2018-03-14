@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using CountingKs.Data;
+using CountingKs.Services;
 using System.Reflection;
 using System.Web.Http;
 
@@ -17,6 +18,8 @@ namespace CountingKs.App_Start
 
             builder.RegisterHttpRequestMessage(GlobalConfiguration.Configuration);
 
+            RegisterServices(builder);
+
             RegisterControllers(builder);
 
             return SetDependencyResolver(builder);
@@ -26,6 +29,11 @@ namespace CountingKs.App_Start
         {
             builder.RegisterInstance(new CountingKsContext()).AsSelf().SingleInstance();
             builder.RegisterType<CountingKsRepository>().As<ICountingKsRepository>().SingleInstance();
+        }
+
+        private static void RegisterServices(ContainerBuilder builder)
+        {
+            builder.RegisterType<CountingKsIdentityService>().As<ICountingKsIdentityService>().SingleInstance();
         }
 
         private static void RegisterControllers(ContainerBuilder builder)
