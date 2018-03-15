@@ -73,5 +73,31 @@ namespace CountingKs.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, exc);
             }
         }
+
+        [HttpPut]
+        [HttpPatch]
+        public HttpResponseMessage Patch(DateTime diaryId, int id, [FromBody] DiaryEntryModel model)
+        {
+            try
+            {
+                var entry = Repository.GetDiaryEntry(_identityService.CurrentUser, diaryId, id);
+                if (entry == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound, $"A diary entry with id {id} has not been found!");
+
+                if (entry.Quantity != model.Quantity)
+                {
+                    entry.Quantity = model.Quantity;
+                    return Repository.SaveAll()
+                        ? Request.CreateResponse(HttpStatusCode.OK, ModelFactory.Create(entry))
+                        : Request.CreateResponse(HttpStatusCode.BadRequest, "Cannot save changes into database");
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, "Quantity is already the same. Other fields are omit");
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, exc);
+            }
+        }
     }
 }
