@@ -1,17 +1,21 @@
-﻿using CountingKs.Data.Entities;
+﻿using CountingKs.Data;
+using CountingKs.Data.Entities;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http.Routing;
 
 namespace CountingKs.Models
 {
-    public class ModelFactory
+    public class ModelFactory : IModelFactory
     {
+        private readonly ICountingKsRepository _repo;
         private readonly UrlHelper _urlHelper;
 
-        public ModelFactory(HttpRequestMessage request)
+        public ModelFactory(HttpRequestMessage request, ICountingKsRepository repo)
         {
+            _repo = repo;
             _urlHelper = new UrlHelper(request);
         }
 
@@ -55,9 +59,33 @@ namespace CountingKs.Models
             {
                 Url = _urlHelper.Link("Diary Entry", new { id = entry.Id, diaryid = entry.Diary.CurrentDate.ToString("yyyy-MM-dd") }),
                 Quantity = entry.Quantity,
-                FoodDescription = entry.FoodItem.Description,
+                FoodDescription = entry.FoodItem?.Description,
                 Measure = Create(entry.Measure)
             };
+        }
+
+        public DiaryEntry Parse(DiaryEntryModel model)
+        {
+            try
+            {
+                var measureUrl = new Uri(model.Measure.Url);
+                var measureId = int.Parse(measureUrl.Segments.Last());
+
+                var entry = new DiaryEntry
+                {
+                    Quantity = model.Quantity,
+                    Measure = _repo.GetMeasure(measureId),
+                };
+
+                entry.FoodItem = entry.Measure.Food;
+                //todo: what about diary?
+                return entry;
+            }
+            catch (Exception exc)
+            {
+                Debug.WriteLine($"{exc.Message} {exc.InnerException?.Message}");
+                return null;
+            }
         }
     }
 }

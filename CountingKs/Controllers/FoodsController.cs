@@ -12,7 +12,7 @@ namespace CountingKs.Controllers
 {
     public class FoodsController : BaseApiController
     {
-        public FoodsController(ICountingKsRepository repo, HttpRequestMessage request) : base(repo, request)
+        public FoodsController(ICountingKsRepository repo, IModelFactory modelFactory) : base(repo, modelFactory)
         {
         }
 

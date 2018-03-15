@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using CountingKs.Data;
+using CountingKs.Models;
 using CountingKs.Services;
 using System.Reflection;
 using System.Web.Http;
@@ -33,6 +34,7 @@ namespace CountingKs.App_Start
 
         private static void RegisterServices(ContainerBuilder builder)
         {
+            builder.RegisterType<ModelFactory>().As<IModelFactory>();
             builder.RegisterType<CountingKsIdentityService>().As<ICountingKsIdentityService>().SingleInstance();
         }
 

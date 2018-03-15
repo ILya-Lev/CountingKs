@@ -5,7 +5,6 @@ using CountingKs.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace CountingKs.Controllers
@@ -14,8 +13,8 @@ namespace CountingKs.Controllers
     {
         private readonly ICountingKsIdentityService _identityService;
 
-        public DiariesController(ICountingKsRepository repo, HttpRequestMessage request, ICountingKsIdentityService identityService)
-            : base(repo, request)
+        public DiariesController(ICountingKsRepository repo, IModelFactory modelFactory, ICountingKsIdentityService identityService)
+            : base(repo, modelFactory)
         {
             _identityService = identityService;
         }

@@ -148,5 +148,25 @@
             "calories": 227.0,
             "url": "http://localhost:8901/api/nutrition/foods/961/measures/1687"
         }
+    },
+    {
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/16",
+        "quantity": 1.5,
+        "foodDescription": "Babyfood, Apple-Cranberry Juc",
+        "measure": {
+            "description": "1 Fl Oz",
+            "calories": 14.0,
+            "url": "http://localhost:8901/api/nutrition/foods/376/measures/685"
+        }
+    },
+    {
+        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/17",
+        "quantity": 1.5,
+        "foodDescription": "Chicken, Broiler Or Fryer, Meat&Skn&Giblets&Neck, Fried, Batter",
+        "measure": {
+            "description": "1 Chicken",
+            "calories": 2992.0,
+            "url": "http://localhost:8901/api/nutrition/foods/751/measures/1281"
+        }
     }
 ]
