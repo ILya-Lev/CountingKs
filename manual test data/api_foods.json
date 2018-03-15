@@ -1,172 +1,127 @@
 [
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/1",
-        "quantity": 1.5,
-        "foodDescription": "Squab, (Pigeon), Meat Only, Raw",
-        "measure": {
-            "description": "1 Unit,   (Yield From 1 Lb Ready-To-Cook Squab)",
-            "calories": 356.0,
-            "url": "http://localhost:8901/api/nutrition/foods/910/measures/1591"
-        }
+        "description": "Abalone, Mixed Species, Raw",
+        "measures": [
+            {
+                "description": "3 Oz",
+                "calories": 89.0,
+                "url": "http://localhost:8901/api/nutrition/foods/4479/measures/7269"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/4479"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/2",
-        "quantity": 1.5,
-        "foodDescription": "Babyfood, Apple-Cranberry Juc",
-        "measure": {
-            "description": "1 Fl Oz",
-            "calories": 14.0,
-            "url": "http://localhost:8901/api/nutrition/foods/376/measures/685"
-        }
+        "description": "Abalone, Mxd Sp, Ckd, Fried",
+        "measures": [
+            {
+                "description": "3 Oz",
+                "calories": 161.0,
+                "url": "http://localhost:8901/api/nutrition/foods/4480/measures/7270"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/4480"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/3",
-        "quantity": 1.5,
-        "foodDescription": "Chicken, Broilers Or Fryers, Meat&Skn&Giblets&Neck, Raw",
-        "measure": {
-            "description": "1 Chicken",
-            "calories": 2228.0,
-            "url": "http://localhost:8901/api/nutrition/foods/750/measures/1280"
-        }
+        "description": "Abiyuch, Raw",
+        "measures": [
+            {
+                "description": ".5 Cup",
+                "calories": 79.0,
+                "url": "http://localhost:8901/api/nutrition/foods/2478/measures/3923"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/2478"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/4",
-        "quantity": 1.5,
-        "foodDescription": "Cheese, Caraway",
-        "measure": {
-            "description": "1 Oz",
-            "calories": 107.0,
-            "url": "http://localhost:8901/api/nutrition/foods/8/measures/15"
-        }
+        "description": "Acerola Juice, Raw",
+        "measures": [
+            {
+                "description": "1 Cup",
+                "calories": 56.0,
+                "url": "http://localhost:8901/api/nutrition/foods/2177/measures/3450"
+            },
+            {
+                "description": "1 Fl Oz",
+                "calories": 7.0,
+                "url": "http://localhost:8901/api/nutrition/foods/2177/measures/3451"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/2177"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/5",
-        "quantity": 1.5,
-        "foodDescription": "Babyfood, Fruit, Applsauc&Apricots, Jr",
-        "measure": {
-            "description": "1 Tbsp",
-            "calories": 8.0,
-            "url": "http://localhost:8901/api/nutrition/foods/354/measures/642"
-        }
+        "description": "Acerola, (West Indian Cherry), Raw",
+        "measures": [
+            {
+                "description": "1 Cup",
+                "calories": 31.0,
+                "url": "http://localhost:8901/api/nutrition/foods/2176/measures/3448"
+            },
+            {
+                "description": "1 Fruit,  Without Refuse",
+                "calories": 2.0,
+                "url": "http://localhost:8901/api/nutrition/foods/2176/measures/3449"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/2176"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/6",
-        "quantity": 1.5,
-        "foodDescription": "Dessert Topping, Semi Solid, Frz",
-        "measure": {
-            "description": "1 Cup",
-            "calories": 238.0,
-            "url": "http://localhost:8901/api/nutrition/foods/66/measures/128"
-        }
+        "description": "Acorn Flour, Full Fat",
+        "measures": [
+            {
+                "description": "1 Oz",
+                "calories": 142.0,
+                "url": "http://localhost:8901/api/nutrition/foods/3632/measures/5777"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/3632"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/7",
-        "quantity": 1.5,
-        "foodDescription": "Chicken, Stewing, Lt Meat, Meat Only, Ckd, Stwd",
-        "measure": {
-            "description": "1 Cup,  Chopped Or Diced",
-            "calories": 298.0,
-            "url": "http://localhost:8901/api/nutrition/foods/879/measures/1530"
-        }
+        "description": "Acorn Stew (Apache)",
+        "measures": [
+            {
+                "description": "100g",
+                "calories": 95.0,
+                "url": "http://localhost:8901/api/nutrition/foods/7224/measures/11433"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/7224"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/8",
-        "quantity": 1.5,
-        "foodDescription": "Fennel Seed",
-        "measure": {
-            "description": "1 Tbsp,  Whole",
-            "calories": 20.0,
-            "url": "http://localhost:8901/api/nutrition/foods/220/measures/386"
-        }
+        "description": "Acorns, Dried",
+        "measures": [
+            {
+                "description": "1 Oz",
+                "calories": 144.0,
+                "url": "http://localhost:8901/api/nutrition/foods/3631/measures/5776"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/3631"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/9",
-        "quantity": 1.5,
-        "foodDescription": "Cheese, Parmesan, Hard",
-        "measure": {
-            "description": "1 Oz",
-            "calories": 111.0,
-            "url": "http://localhost:8901/api/nutrition/foods/33/measures/62"
-        }
+        "description": "Acorns, Raw",
+        "measures": [
+            {
+                "description": "1 Oz",
+                "calories": 110.0,
+                "url": "http://localhost:8901/api/nutrition/foods/3630/measures/5775"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/3630"
     },
     {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/10",
-        "quantity": 1.5,
-        "foodDescription": "Salad Drsng, Honey Mustard Drsng, Red Cal",
-        "measure": {
-            "description": "2 Tbsp,   (1 Serving)",
-            "calories": 62.0,
-            "url": "http://localhost:8901/api/nutrition/foods/738/measures/1264"
-        }
-    },
-    {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/11",
-        "quantity": 1.5,
-        "foodDescription": "Babyfood, Veg, Spinach, Crmd, Str",
-        "measure": {
-            "description": "1 Cup",
-            "calories": 89.0,
-            "url": "http://localhost:8901/api/nutrition/foods/339/measures/612"
-        }
-    },
-    {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/12",
-        "quantity": 1.5,
-        "foodDescription": "Turkey, All Classes, Neck, Meat Only, Ckd, Simmrd",
-        "measure": {
-            "description": "1 Unit,   (Yield From 1 Lb Ready-To-Cook Turkey)",
-            "calories": 18.0,
-            "url": "http://localhost:8901/api/nutrition/foods/929/measures/1624"
-        }
-    },
-    {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/13",
-        "quantity": 1.5,
-        "foodDescription": "Veg Oil Sprd, 37% Fat, Unspec Oils, W/ Salt, W/ Added Vitamin D",
-        "measure": {
-            "description": "1 Tbsp",
-            "calories": 51.0,
-            "url": "http://localhost:8901/api/nutrition/foods/742/measures/1268"
-        }
-    },
-    {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/14",
-        "quantity": 1.5,
-        "foodDescription": "Salad Drsng, Mayo, Imitn, Milk Crm",
-        "measure": {
-            "description": "1 Tablespoon",
-            "calories": 15.0,
-            "url": "http://localhost:8901/api/nutrition/foods/579/measures/979"
-        }
-    },
-    {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/15",
-        "quantity": 1.5,
-        "foodDescription": "Turkey, Fryer-Roasters, Dk Meat, Meat Only, Ckd, Rstd",
-        "measure": {
-            "description": "1 Cup,  Chopped Or Diced",
-            "calories": 227.0,
-            "url": "http://localhost:8901/api/nutrition/foods/961/measures/1687"
-        }
-    },
-    {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/16",
-        "quantity": 1.5,
-        "foodDescription": "Babyfood, Apple-Cranberry Juc",
-        "measure": {
-            "description": "1 Fl Oz",
-            "calories": 14.0,
-            "url": "http://localhost:8901/api/nutrition/foods/376/measures/685"
-        }
-    },
-    {
-        "url": "http://localhost:8901/api/user/diaries/2018-03-05/entries/17",
-        "quantity": 1.5,
-        "foodDescription": "Chicken, Broiler Or Fryer, Meat&Skn&Giblets&Neck, Fried, Batter",
-        "measure": {
-            "description": "1 Chicken",
-            "calories": 2992.0,
-            "url": "http://localhost:8901/api/nutrition/foods/751/measures/1281"
-        }
+        "description": "Adobo Fresco",
+        "measures": [
+            {
+                "description": "1 Cup",
+                "calories": 780.0,
+                "url": "http://localhost:8901/api/nutrition/foods/1556/measures/2645"
+            },
+            {
+                "description": "1 Tbsp",
+                "calories": 49.0,
+                "url": "http://localhost:8901/api/nutrition/foods/1556/measures/2646"
+            }
+        ],
+        "url": "http://localhost:8901/api/nutrition/foods/1556"
     }
 ]

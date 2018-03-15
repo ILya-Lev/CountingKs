@@ -1,31 +1,63 @@
 ﻿using CountingKs.Data;
 using CountingKs.Data.Entities;
 using CountingKs.Models;
-using System.Collections.Generic;
+using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Http.Routing;
 
 namespace CountingKs.Controllers
 {
     public class FoodsController : BaseApiController
     {
+        private const int PageSize = 10;
+
         public FoodsController(ICountingKsRepository repo, IModelFactory modelFactory) : base(repo, modelFactory)
         {
         }
 
-        public IEnumerable<FoodModel> Get(bool includeMeasures = true)
+        public HttpResponseMessage Get(bool includeMeasures = true, int page = 0)
         {
-            var result =
-                GetFoods(includeMeasures)
-                .OrderBy(f => f.Description)
-                .Take(25)
-                .ToList()
-                .Select(ModelFactory.Create);
+            try
+            {
+                var foodByDescription = GetFoods(includeMeasures).OrderBy(f => f.Description);
 
-            return result;
+                var totalFoodAmount = foodByDescription.Count();
+                var totalPages = totalFoodAmount / PageSize;
+
+                var foodsOnThePage = foodByDescription
+                    .Skip(page * PageSize)
+                    .Take(PageSize)
+                    .ToList()
+                    .Select(ModelFactory.Create);
+
+                var pagingData = new
+                {
+                    TotalCount = totalFoodAmount,
+                    TotalPages = totalPages,
+                    PrevPageUrl = LinkForPage(page - 1, totalPages),
+                    NextPageUrl = LinkForPage(page + 1, totalPages),
+                    FoodsOnThePage = foodsOnThePage
+                };
+
+                return Request.CreateResponse(HttpStatusCode.OK, pagingData);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, exc);
+            }
+        }
+
+        private string LinkForPage(int pageNumber, int totalPages)
+        {
+            if (pageNumber < 0 || pageNumber > totalPages)
+                return "";
+
+            return new UrlHelper(Request).Link("Food", new { page = pageNumber });
         }
 
         public FoodModel Get(int foodid)
