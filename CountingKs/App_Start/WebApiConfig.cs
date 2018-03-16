@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Serialization;
 using System.Web.Http;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace CountingKs
 {
@@ -9,6 +10,8 @@ namespace CountingKs
         {
             var jsonMediaTypeFormatter = config.Formatters.JsonFormatter;
             jsonMediaTypeFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.Insert(0, new JsonpMediaTypeFormatter(jsonMediaTypeFormatter));
+
             //config.Formatters.Clear();
             //config.Formatters.Add(jsonMediaTypeFormatter);
 
@@ -43,6 +46,10 @@ namespace CountingKs
             // To avoid processing unexpected or malicious queries, use the validation settings on QueryableAttribute to validate incoming queries.
             // For more information, visit http://go.microsoft.com/fwlink/?LinkId=279712.
             //config.EnableQuerySupport();
+
+#if !DEBUG
+            config.Filters.Add(new RequireHttpsAttribute());
+#endif
         }
     }
 }
