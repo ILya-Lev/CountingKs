@@ -96,5 +96,14 @@ namespace CountingKs.Models
                 TotalCalories = Math.Ceiling(diary.Entries.Sum(e => e.Measure.Calories * e.Quantity))
             };
         }
+
+        public AuthTokenModel Create(AuthToken authToken)
+        {
+            return new AuthTokenModel
+            {
+                Expiration = authToken.Expiration,
+                Token = authToken.Token
+            };
+        }
     }
 }

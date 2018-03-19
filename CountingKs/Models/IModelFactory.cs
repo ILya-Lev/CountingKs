@@ -10,5 +10,6 @@ namespace CountingKs.Models
         DiaryModel Create(Diary diary);
         DiaryEntry Parse(DiaryEntryModel entry);
         DiarySummaryModel CreateSummary(Diary diary);
+        AuthTokenModel Create(AuthToken authToken);
     }
 }
