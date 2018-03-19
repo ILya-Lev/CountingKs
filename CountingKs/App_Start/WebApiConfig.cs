@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using CountingKs.Services;
+using Newtonsoft.Json.Serialization;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace CountingKs
 {
@@ -26,6 +28,11 @@ namespace CountingKs
                 routeTemplate: "api/nutrition/foods/{foodid}/measures/{id}",
                 defaults: new { controller = "measures", id = RouteParameter.Optional }
             );
+            //config.Routes.MapHttpRoute(
+            //    name: "MeasuresV2",
+            //    routeTemplate: "api/v2/nutrition/foods/{foodid}/measures/{id}",
+            //    defaults: new { controller = "measuresv2", id = RouteParameter.Optional }
+            //);
             config.Routes.MapHttpRoute(
                 name: "Diary",
                 routeTemplate: "api/user/diaries/{diaryid}",
@@ -53,6 +60,8 @@ namespace CountingKs
             //config.EnableQuerySupport();
 
             ////config.Filters.Add(new EnableCorsAttribute);
+
+            config.Services.Replace(typeof(IHttpControllerSelector), new CountingKsControllerSelector(config));
 
 #if !DEBUG
             config.Filters.Add(new RequireHttpsAttribute());

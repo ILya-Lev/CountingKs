@@ -6,6 +6,7 @@ namespace CountingKs.Models
     {
         FoodModel Create(Food food);
         MeasureModel Create(Measure measure);
+        MeasureV2Model Create2(Measure measure);
         DiaryEntryModel Create(DiaryEntry entry);
         DiaryModel Create(Diary diary);
         DiaryEntry Parse(DiaryEntryModel entry);
