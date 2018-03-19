@@ -1,10 +1,11 @@
-﻿using System.Threading;
-
-namespace CountingKs.Services
+﻿namespace CountingKs.Services
 {
     public class CountingKsIdentityService : ICountingKsIdentityService
     {
-        //public string CurrentUser => "shawnwildermuth";
+#if NoAuth
+        public string CurrentUser => "qwerty";
+#else
         public string CurrentUser => Thread.CurrentPrincipal.Identity.Name;
+#endif
     }
 }

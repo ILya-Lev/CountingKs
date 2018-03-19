@@ -10,15 +10,20 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		No_Auth|Any CPU = No_Auth|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{731C8232-E347-46A2-92F9-8079F1569DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{731C8232-E347-46A2-92F9-8079F1569DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{731C8232-E347-46A2-92F9-8079F1569DB6}.No_Auth|Any CPU.ActiveCfg = No_Auth|Any CPU
+		{731C8232-E347-46A2-92F9-8079F1569DB6}.No_Auth|Any CPU.Build.0 = No_Auth|Any CPU
 		{731C8232-E347-46A2-92F9-8079F1569DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{731C8232-E347-46A2-92F9-8079F1569DB6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF4DDE5F-8DF7-4D80-A3CD-88E1D0DBCB1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF4DDE5F-8DF7-4D80-A3CD-88E1D0DBCB1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4DDE5F-8DF7-4D80-A3CD-88E1D0DBCB1D}.No_Auth|Any CPU.ActiveCfg = No_Auth|Any CPU
+		{AF4DDE5F-8DF7-4D80-A3CD-88E1D0DBCB1D}.No_Auth|Any CPU.Build.0 = No_Auth|Any CPU
 		{AF4DDE5F-8DF7-4D80-A3CD-88E1D0DBCB1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF4DDE5F-8DF7-4D80-A3CD-88E1D0DBCB1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

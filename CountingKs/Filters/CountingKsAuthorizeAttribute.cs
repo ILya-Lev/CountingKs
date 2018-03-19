@@ -27,6 +27,7 @@ namespace CountingKs.Filters
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
+#if !NoAuth
             if (!TokenAuthorization(actionContext))
             {
                 HandleUnauthorized(actionContext);
@@ -37,6 +38,7 @@ namespace CountingKs.Filters
             {
                 HandleUnauthorized(actionContext);
             }
+#endif
         }
 
         private bool TokenAuthorization(HttpActionContext actionContext)
