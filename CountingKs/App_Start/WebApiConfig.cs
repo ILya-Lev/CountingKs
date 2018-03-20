@@ -1,5 +1,9 @@
 ﻿using CountingKs.Services;
+using DotNetOpenAuth.Messaging;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 
@@ -11,7 +15,7 @@ namespace CountingKs
         {
             var jsonMediaTypeFormatter = config.Formatters.JsonFormatter;
             jsonMediaTypeFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
+            CreateMediaTypes(jsonMediaTypeFormatter);
             //config.Formatters.Insert(0, new JsonpMediaTypeFormatter(jsonMediaTypeFormatter));
 
             //config.Formatters.Clear();
@@ -66,6 +70,20 @@ namespace CountingKs
 #if !DEBUG
             config.Filters.Add(new RequireHttpsAttribute());
 #endif
+        }
+
+        private static void CreateMediaTypes(JsonMediaTypeFormatter jsonMediaTypeFormatter)
+        {
+            var mediaTypes = new[]
+            {
+                "application/vnd.countingks.food.v1+json",
+                "application/vnd.countingks.measure.v1+json",
+                "application/vnd.countingks.measure.v2+json",
+                "application/vnd.countingks.diary.v1+json",
+                "application/vnd.countingks.diaryEntry.v1+json",
+            };
+
+            jsonMediaTypeFormatter.SupportedMediaTypes.AddRange(mediaTypes.Select(mt => new MediaTypeHeaderValue(mt)));
         }
     }
 }
