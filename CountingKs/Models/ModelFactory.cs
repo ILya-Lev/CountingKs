@@ -1,6 +1,7 @@
 ﻿using CountingKs.Data;
 using CountingKs.Data.Entities;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
@@ -65,9 +66,15 @@ namespace CountingKs.Models
 
         public DiaryModel Create(Diary diary)
         {
+            var selfLink = _urlHelper.Link("Diary", new { diaryid = diary.CurrentDate.ToString("yyyy-MM-dd") });
+            var newDiaryEntryLink = _urlHelper.Link("Diary Entry", new { diaryid = diary.CurrentDate.ToString("yyyy-MM-dd") });
             return new DiaryModel
             {
-                Url = _urlHelper.Link("Diary", new { diaryid = diary.CurrentDate.ToString("yyyy-MM-dd") }),
+                Links = new List<LinkModel>
+                {
+                    CreateLink(selfLink, "self"),
+                    CreateLink(newDiaryEntryLink, "newDiaryEntry", "POST"),
+                },
                 UserName = diary.UserName,
                 CurrentDate = diary.CurrentDate,
                 Entries = diary.Entries.Select(Create)
@@ -83,6 +90,35 @@ namespace CountingKs.Models
                 FoodDescription = entry.FoodItem?.Description,
                 Measure = Create(entry.Measure)
             };
+        }
+
+        public Diary Parse(DiaryModel model)
+        {
+            try
+            {
+                var entity = new Diary { CurrentDate = model.CurrentDate };
+
+                var selfLink = model.Links.FirstOrDefault(lnk => lnk.Relation == "self");
+                if (!string.IsNullOrWhiteSpace(selfLink?.Href))
+                {
+                    var uri = new Uri(selfLink.Href);
+                    entity.Id = int.Parse(uri.Segments.Last());
+                }
+
+                if (model.Entries != null)
+                {
+                    foreach (var entry in model.Entries)
+                    {
+                        entity.Entries.Add(Parse(entry));
+                    }
+                }
+
+                return entity;
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
         }
 
         public DiaryEntry Parse(DiaryEntryModel model)
@@ -124,6 +160,17 @@ namespace CountingKs.Models
             {
                 Expiration = authToken.Expiration,
                 Token = authToken.Token
+            };
+        }
+
+        public LinkModel CreateLink(string href, string relation, string method = "GET", bool isTemplated = false)
+        {
+            return new LinkModel
+            {
+                Href = href,
+                Relation = relation,
+                Method = method,
+                IsTemplated = isTemplated
             };
         }
     }

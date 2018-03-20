@@ -41,8 +41,11 @@ namespace CountingKs.Controllers
                 {
                     TotalCount = totalFoodAmount,
                     TotalPages = totalPages,
-                    PrevPageUrl = LinkForPage(page - 1, totalPages),
-                    NextPageUrl = LinkForPage(page + 1, totalPages),
+                    Links = new[]
+                    {
+                        LinkForPage("prevPage", page - 1, totalPages),
+                        LinkForPage("nextPage", page + 1, totalPages)
+                    }.Where(lm => !string.IsNullOrWhiteSpace(lm.Href)).ToList(),
                     FoodsOnThePage = foodsOnThePage
                 };
 
@@ -54,12 +57,13 @@ namespace CountingKs.Controllers
             }
         }
 
-        private string LinkForPage(int pageNumber, int totalPages)
+        private LinkModel LinkForPage(string pageName, int pageNumber, int totalPages)
         {
-            if (pageNumber < 0 || pageNumber > totalPages)
-                return "";
+            var linkForPage = pageNumber < 0 || pageNumber > totalPages
+                ? ""
+                : new UrlHelper(Request).Link("Food", new { page = pageNumber });
 
-            return new UrlHelper(Request).Link("Food", new { page = pageNumber });
+            return ModelFactory.CreateLink(linkForPage, pageName);
         }
 
         public FoodModel Get(int foodid)

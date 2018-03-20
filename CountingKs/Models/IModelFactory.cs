@@ -12,5 +12,6 @@ namespace CountingKs.Models
         DiaryEntry Parse(DiaryEntryModel entry);
         DiarySummaryModel CreateSummary(Diary diary);
         AuthTokenModel Create(AuthToken authToken);
+        LinkModel CreateLink(string href, string relation, string method = "GET", bool isTemplated = false);
     }
 }
