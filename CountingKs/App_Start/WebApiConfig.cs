@@ -1,6 +1,9 @@
-﻿using CountingKs.Services;
+﻿using CacheCow.Server;
+using CacheCow.Server.EntityTagStore.SqlServer;
+using CountingKs.Services;
 using DotNetOpenAuth.Messaging;
 using Newtonsoft.Json.Serialization;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
@@ -67,9 +70,19 @@ namespace CountingKs
 
             config.Services.Replace(typeof(IHttpControllerSelector), new CountingKsControllerSelector(config));
 
+            ConfigureCachingETagSupport(config);
+
 #if !DEBUG
             config.Filters.Add(new RequireHttpsAttribute());
 #endif
+        }
+
+        private static void ConfigureCachingETagSupport(HttpConfiguration config)
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"]?.ConnectionString;
+            var sqlTagStore = new SqlServerEntityTagStore(connectionString);
+            var cachingHandler = new CachingHandler(config, sqlTagStore);
+            config.MessageHandlers.Add(cachingHandler);
         }
 
         private static void CreateMediaTypes(JsonMediaTypeFormatter jsonMediaTypeFormatter)
