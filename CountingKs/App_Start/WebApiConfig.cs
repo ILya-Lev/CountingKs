@@ -1,5 +1,6 @@
 ﻿using CacheCow.Server;
 using CacheCow.Server.EntityTagStore.SqlServer;
+using CountingKs.Converters;
 using CountingKs.Services;
 using DotNetOpenAuth.Messaging;
 using Newtonsoft.Json.Serialization;
@@ -16,9 +17,11 @@ namespace CountingKs
     {
         public static void Register(HttpConfiguration config)
         {
-            var jsonMediaTypeFormatter = config.Formatters.JsonFormatter;
-            jsonMediaTypeFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            CreateMediaTypes(jsonMediaTypeFormatter);
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            jsonFormatter.SerializerSettings.Converters.Add(new LinkModelConverter());
+
+            CreateMediaTypes(jsonFormatter);
             //config.Formatters.Insert(0, new JsonpMediaTypeFormatter(jsonMediaTypeFormatter));
 
             //config.Formatters.Clear();
