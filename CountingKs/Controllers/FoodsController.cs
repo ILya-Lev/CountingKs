@@ -25,13 +25,14 @@ namespace CountingKs.Controllers
         }
 
         [Route("{foodid:int}", Name = "Food")]
-        public FoodModel Get(int foodid)
+        public IHttpActionResult Get(int foodid)
         {
             Debug.WriteLine($"Thread start in get {Thread.CurrentThread.ManagedThreadId}");
             //StartAsync();
             var aFood = Repository.GetFood(foodid);
             Debug.WriteLine($"Thread  end in get {Thread.CurrentThread.ManagedThreadId}");
-            return ModelFactory.Create(aFood);
+            var foodModel = ModelFactory.Create(aFood);
+            return Versioned(foodModel);
         }
 
         [Route("", Name = "FoodPage")]

@@ -1,4 +1,5 @@
-﻿using CountingKs.Data;
+﻿using CountingKs.ActionResults;
+using CountingKs.Data;
 using CountingKs.Models;
 using System.Web.Http;
 
@@ -17,5 +18,10 @@ namespace CountingKs.Controllers
 
         protected ICountingKsRepository Repository => _repo;
         protected IModelFactory ModelFactory => _modelFactory;// ?? (_modelFactory = new ModelFactory(this.Request));
+
+        protected IHttpActionResult Versioned<TBody>(TBody body, string version = "v1") where TBody : class
+        {
+            return new VersionedActionResult<TBody>(Request, version, body);
+        }
     }
 }

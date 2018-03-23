@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Dispatcher;
 
 namespace CountingKs
@@ -70,7 +71,8 @@ namespace CountingKs
             // For more information, visit http://go.microsoft.com/fwlink/?LinkId=279712.
             //config.EnableQuerySupport();
 
-            ////config.Filters.Add(new EnableCorsAttribute);
+            var corsAttribute = new EnableCorsAttribute(origins: "*", headers: "*", methods: "GET");
+            config.EnableCors(corsAttribute);
 
             config.Services.Replace(typeof(IHttpControllerSelector), new CountingKsControllerSelector(config));
 
