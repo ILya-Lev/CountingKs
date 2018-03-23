@@ -9,11 +9,13 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Http;
 using System.Web.Http.Routing;
 
 namespace CountingKs.Controllers
 {
     [CountingKsAuthorize(false)]
+    [RoutePrefix("api/nutrition/foods")]
     public class FoodsController : BaseApiController
     {
         private const int PageSize = 10;
@@ -22,6 +24,17 @@ namespace CountingKs.Controllers
         {
         }
 
+        [Route("{foodid:int}", Name = "Food")]
+        public FoodModel Get(int foodid)
+        {
+            Debug.WriteLine($"Thread start in get {Thread.CurrentThread.ManagedThreadId}");
+            //StartAsync();
+            var aFood = Repository.GetFood(foodid);
+            Debug.WriteLine($"Thread  end in get {Thread.CurrentThread.ManagedThreadId}");
+            return ModelFactory.Create(aFood);
+        }
+
+        [Route("", Name = "FoodPage")]
         public HttpResponseMessage Get(bool includeMeasures = true, int page = 0)
         {
             try
@@ -61,18 +74,9 @@ namespace CountingKs.Controllers
         {
             var linkForPage = pageNumber < 0 || pageNumber > totalPages
                 ? ""
-                : new UrlHelper(Request).Link("Food", new { page = pageNumber });
+                : new UrlHelper(Request).Link("FoodPage", new { page = pageNumber });
 
             return ModelFactory.CreateLink(linkForPage, pageName);
-        }
-
-        public FoodModel Get(int foodid)
-        {
-            Debug.WriteLine($"Thread start in get {Thread.CurrentThread.ManagedThreadId}");
-            //StartAsync();
-            var aFood = Repository.GetFood(foodid);
-            Debug.WriteLine($"Thread  end in get {Thread.CurrentThread.ManagedThreadId}");
-            return ModelFactory.Create(aFood);
         }
 
         private IQueryable<Food> GetFoods(bool includeMeasures)

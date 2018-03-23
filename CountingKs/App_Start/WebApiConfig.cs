@@ -27,12 +27,13 @@ namespace CountingKs
             //config.Formatters.Clear();
             //config.Formatters.Add(jsonMediaTypeFormatter);
 
+            config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "Food",
-                routeTemplate: "api/nutrition/foods/{foodid}",
-                defaults: new { controller = "foods", foodid = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "Food",
+            //    routeTemplate: "api/nutrition/foods/{foodid}",
+            //    defaults: new { controller = "foods", foodid = RouteParameter.Optional }
+            //);
             config.Routes.MapHttpRoute(
                 name: "Measures",
                 routeTemplate: "api/nutrition/foods/{foodid}/measures/{id}",

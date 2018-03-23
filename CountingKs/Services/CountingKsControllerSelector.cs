@@ -27,6 +27,11 @@ namespace CountingKs.Services
             var controllerName = (string)routData.Values["controller"];
 
             HttpControllerDescriptor descriptor;
+            if (string.IsNullOrWhiteSpace(controllerName))
+            {
+                return base.SelectController(request);
+            }
+
             if (controllers.TryGetValue(controllerName, out descriptor))
             {
                 //var version = GetVersionFromQueryString(request);
